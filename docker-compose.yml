@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  pgadmin:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile-pgadmin
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    ports:
+      - '${PGADMIN_HOST_PORT}:${PGADMIN_CONTAINER_PORT}'
+
+  postgres:
+    env_file:
+      - .env
+    image: postgres:9.6
+    ports:
+      - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
