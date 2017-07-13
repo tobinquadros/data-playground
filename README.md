@@ -1,26 +1,58 @@
 # data-playground
+
 Personal playground for simple data engineering and analysis projects.
 
 ## Setup
 
-To easily start a local PostgreSQL server and pgAdmin4 instance (available at
-`http://localhost:5050/browser/`):
+### PostgreSQL
+
+#### To start a dockerized PostgreSQL server
 
 ```
-make pgadmin
+make postgres
 ```
 
-To connect directly to the same postgres instance with `psql`:
+Uses these default ENVIRONMENT VARIABLES:
+
+- `POSTGRES_DATABASE`: postgres
+- `POSTGRES_HOST`: localhost
+- `POSTGRES_PASSWORD`: postgres
+- `POSTGRES_PORT`: 5432
+- `POSTGRES_USER`: postgres
+
+#### To use `psql` directly from within the same PostgreSQL instance
+
+This will ensure postgres is running, and begin a psql session from within the
+postgres container (no local dependencies need be met):
 
 ```
 make psql
 ```
 
-The docker image's postrges database credentials:
+Exit the `psql` session with `<ctrl-d>`.
 
-- `POSTGRES_DATABASE`: postgres
-- `POSTGRES_HOST`: postgres (it's on the same docker-compose network)
-- `POSTGRES_PORT`: 5432
-- `POSTGRES_USER`: postgres
+#### To start a pgAdmin4 instance at http://localhost:5050/browser/
+
+This will ensure the local postgres is running, and start pgadmin:
+
+```
+make pgadmin
+```
+
+You can now use pgAdmin to connect to any PostgreSQL instance. To connect to
+the local postgres server use the credentials given above and set the
+`POSTGRES_HOST` to the hostname used in the docker-compose network:
+
+- `POSTGRES_HOST`: postgres
+
+### ElasticSearch
+
+#### To start an elasticsearch instance at http://localhost:9200/
+
+This starts a single instance:
+
+```
+make elasticsearch
+```
 
 ## More To Come (this is early stage WIP)...
