@@ -1,5 +1,6 @@
 FROM python:2-alpine
 MAINTAINER Tobin Quadros
+# Initial attribution goes to https://github.com/thaJeztah/pgadmin4-docker
 
 LABEL component-id=pgadmin
 
