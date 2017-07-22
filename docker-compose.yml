@@ -7,6 +7,8 @@ services:
     image: postgres:9.6
     ports:
       - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
+    volumes:
+      - ./data:/var/lib/postgresql/data/data
 
   pgadmin:
     build:

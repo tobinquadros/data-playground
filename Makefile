@@ -1,9 +1,12 @@
 include .env
 
-.PHONY: postgres psql pgadmin elasticsearch clean rm-containers rm-images
+.PHONY: postgres postgres-shell psql pgadmin elasticsearch clean rm-containers rm-images
 
 postgres:
 	@ docker-compose up -d postgres
+
+postgres-shell: postgres
+	@ docker-compose exec postgres bash
 
 psql: postgres
 	@ sleep 1 # lets postgres container initialize

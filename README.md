@@ -20,7 +20,16 @@ Uses these default ENVIRONMENT VARIABLES:
 - `POSTGRES_PORT`: 5432
 - `POSTGRES_USER`: postgres
 
-#### To use `psql` directly from within the same PostgreSQL instance
+#### To start a bash shell session from within the PostgreSQL container
+
+This will ensure postgres is running, and begin a bash shell session from
+within the postgres container:
+
+```
+make postgres-shell
+```
+
+#### To start a `psql` session from within the PostgreSQL container
 
 This will ensure postgres is running, and begin a psql session from within the
 postgres container (no local dependencies need be met):
