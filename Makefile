@@ -24,9 +24,9 @@ elasticsearch:
 clean: rm-containers rm-images
 
 rm-containers:
-	-@ docker container ls -aq -f "status=running" -f "label=component-id=pgadmin" | xargs -I {} docker container kill {}
-	-@ docker container ls -aq -f "status=exited"  | xargs -I {} docker container rm {}
+	-@ docker container ls -aq -f "status=running" | xargs -I {} docker container kill {}
 	-@ docker-compose down --remove-orphans -v
+	-@ docker container prune -f
 
 rm-images:
-	-@ docker image ls -aq -f "dangling=true" | xargs -I {} docker image rm -f {}
+	-@ docker image prune -f
