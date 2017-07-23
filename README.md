@@ -47,6 +47,9 @@ within the postgres container:
 make postgres-shell
 ```
 
+The locally .gitignored `data/` directory will be mounted in the same container
+at `/data`. You can `pg_restore`, etc., from this shell.
+
 #### To start a `psql` session from within the PostgreSQL container
 
 This will ensure postgres is running, and begin a `psql` session from within the
