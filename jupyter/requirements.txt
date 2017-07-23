@@ -1,0 +1,22 @@
+cufflinks
+google-api-python-client
+graphviz
+matplotlib
+networkx
+plantweb
+plotly
+psycopg2
+pyyaml
+requests
+scipy
+seaborn
+sqlalchemy
+statsmodels
+sympy
+tqdm
+
+# add pandas specific deps below (http://pandas.pydata.org/pandas-docs/stable/install.html)
+numpy
+pandas
+xlrd
+

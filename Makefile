@@ -1,6 +1,9 @@
 include .env
 
-.PHONY: postgres postgres-shell psql pgadmin elasticsearch clean rm-containers rm-images
+.PHONY: jupyter postgres postgres-shell psql pgadmin elasticsearch clean rm-containers rm-images
+
+jupyter:
+	@ docker-compose up jupyter
 
 postgres:
 	@ docker-compose up -d postgres

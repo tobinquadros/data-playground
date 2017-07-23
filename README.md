@@ -4,6 +4,24 @@ Personal playground for simple data engineering and analysis projects.
 
 ## Setup
 
+### Jupyter
+
+#### To start a Jupyter Notebook Server
+
+This Jupyter Notebook server is be capable of connecting to all data sources
+that are located in the [docker-compose.yml](docker-compose.yml) file by using
+their docker-compose service names as hostnames, along with the appropriate
+ports. For details on the python libraries available within the
+jupyter-notebook runtime see the
+[jupyter/requirements.txt](jupyter/requirements.txt) file.
+
+```
+make jupyter
+```
+
+The login URL (with pre-set token) will be:
+http://localhost:8888/?token=cb757c6e42a6b68b6dc73685eb78e231c4baf1db2c767783
+
 ### PostgreSQL
 
 #### To start a dockerized PostgreSQL server

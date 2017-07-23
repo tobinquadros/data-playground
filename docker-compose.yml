@@ -1,6 +1,17 @@
 version: '3'
 services:
 
+  jupyter:
+    env_file:
+      - .env
+    build:
+      context: ./jupyter
+    ports:
+      - '${JUPYTER_HOST_PORT}:${JUPYTER_CONTAINER_PORT}'
+    volumes:
+      - .:/code
+      - ./jupyter/jupyter_notebook_config.py:/home/jovyan/.jupyter/jupyter_notebook_config.py
+
   postgres:
     env_file:
       - .env
