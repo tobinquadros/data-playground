@@ -38,9 +38,9 @@ Uses these default ENVIRONMENT VARIABLES:
 - `POSTGRES_PORT`: 5432
 - `POSTGRES_USER`: postgres
 
-#### To start a bash shell session from within the PostgreSQL container
+#### To start a `bash` shell session from within the PostgreSQL container
 
-This will ensure postgres is running, and begin a bash shell session from
+This will ensure postgres is running, and begin a `bash` shell session from
 within the postgres container:
 
 ```
@@ -49,7 +49,7 @@ make postgres-shell
 
 #### To start a `psql` session from within the PostgreSQL container
 
-This will ensure postgres is running, and begin a psql session from within the
+This will ensure postgres is running, and begin a `psql` session from within the
 postgres container (no local dependencies need be met):
 
 ```
@@ -67,8 +67,9 @@ make pgadmin
 ```
 
 You can now use pgAdmin to connect to any PostgreSQL instance. To connect to
-the local postgres server use the credentials given above and set the
-`POSTGRES_HOST` to the hostname used in the docker-compose network:
+the local dockerized postgres container use the credentials given above and set
+the `POSTGRES_HOST` to the postgres service name used in the
+[docker-compose.yml](docker-compose.yml) file:
 
 - `POSTGRES_HOST`: postgres
 
