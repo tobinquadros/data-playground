@@ -30,6 +30,22 @@ services:
     ports:
       - '${PGADMIN_HOST_PORT}:${PGADMIN_CONTAINER_PORT}'
 
+  mysql:
+    env_file:
+      - .env
+    image: mysql:5.7
+    ports:
+      - '${MYSQL_HOST_PORT}:${MYSQL_CONTAINER_PORT}'
+    volumes:
+      - ./data:/data
+
+  phpmyadmin:
+    env_file:
+      - .env
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - '${MYSQL_PHPMYADMIN_HOST_PORT}:${MYSQL_PHPMYADMIN_CONTAINER_PORT}'
+
   elasticsearch:
     env_file:
       - .env

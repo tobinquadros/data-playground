@@ -63,7 +63,7 @@ Exit the `psql` session with `<ctrl-d>`.
 
 #### To start a pgAdmin4 instance at http://localhost:5050/browser/
 
-This will ensure the local postgres is running, and start pgadmin:
+This will ensure the local postgres server is running, and start pgAdmin4:
 
 ```
 make pgadmin
@@ -75,6 +75,52 @@ the `POSTGRES_HOST` to the postgres service name used in the
 [docker-compose.yml](docker-compose.yml) file:
 
 - `POSTGRES_HOST`: postgres
+
+### MySQL
+
+#### To start a dockerized MySQL server
+
+```
+make mysql
+```
+
+Uses these default ENVIRONMENT VARIABLES:
+
+- `MYSQL_ROOT_PASSWORD`: mysql
+
+#### To start a `bash` shell session from within the MySQL container
+
+This will ensure mysql is running, and begin a `bash` shell session from
+within the mysql container:
+
+```
+make mysql-shell
+```
+
+The locally .gitignored `data/` directory will be mounted in the same container
+at `/data`. You can `mysqldump`, etc., from this shell.
+
+#### To start a `mysql` client session from within the MySQL container
+
+This will ensure mysql is running, and begin a `mysql` session from within the
+mysql container (no local dependencies need be met):
+
+```
+make mysql-client
+```
+
+Exit the `mysql` session with `<ctrl-d>`.
+
+#### To start a phpMyAdmin instance at http://localhost:8080/
+
+This will ensure the local mysql server is running, and start phpMyAdmin:
+
+```
+make phpmyadmin
+```
+
+The phpMyAdmin session will be automatically connected to the local mysql
+server, but you can use phpMyAdmin to connect to any other MySQL instance.
 
 ### ElasticSearch
 
