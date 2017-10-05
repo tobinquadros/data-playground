@@ -6,6 +6,7 @@ networkx
 plantweb
 plotly
 psycopg2
+pymysql
 pyyaml
 requests
 scipy
