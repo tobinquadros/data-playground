@@ -7,7 +7,9 @@ include .env
 	clean rm-containers rm-images
 
 jupyter:
-	@ docker-compose up jupyter
+	@ docker-compose up -d jupyter
+	@ sleep 3 # lets jupyter container initialize
+	@ open http://localhost:8888/
 
 postgres:
 	@ docker-compose up -d postgres
