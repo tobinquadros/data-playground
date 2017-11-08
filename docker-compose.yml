@@ -15,7 +15,7 @@ services:
   postgres:
     env_file:
       - .env
-    image: postgres:9.6
+    image: postgres:10
     ports:
       - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
     volumes:
