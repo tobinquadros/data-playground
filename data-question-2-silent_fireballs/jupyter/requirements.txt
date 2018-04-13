@@ -1,0 +1,11 @@
+geopandas
+matplotlib
+nltk
+numpy
+pandas
+psycopg2
+seaborn
+sodapy
+sqlalchemy
+sklearn
+xlrd
