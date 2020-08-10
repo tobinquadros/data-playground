@@ -15,20 +15,21 @@ services:
   postgres:
     env_file:
       - .env
-    image: postgres:10
+    image: postgres:latest
     ports:
       - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
     volumes:
       - ./data:/data
 
   pgadmin:
-    build:
-      context: ./postgres
-      dockerfile: Dockerfile-pgadmin
+    # build:
+      # context: ./postgres
+      # dockerfile: Dockerfile-pgadmin
+    image: dpage/pgadmin4:latest
     env_file:
       - .env
     ports:
-      - '${PGADMIN_HOST_PORT}:${PGADMIN_CONTAINER_PORT}'
+      - '${PGADMIN_HOST_PORT}:${PGADMIN_LISTEN_PORT}'
 
   mysql:
     env_file:
