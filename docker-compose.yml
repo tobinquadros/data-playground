@@ -15,11 +15,14 @@ services:
   postgres:
     env_file:
       - .env
-    image: postgres:latest
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
     ports:
       - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
     volumes:
       - ./data:/data
+      - ${PWD}/postgres/.psqlrc:/root/.psqlrc
 
   pgadmin:
     # build:

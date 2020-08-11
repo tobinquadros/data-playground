@@ -1,0 +1,19 @@
+\set QUIET 1
+
+\set COMP_KEYWORD_CASE upper
+\set HISTCONTROL ignoreboth
+\set HISTFILE ~/.psql_history- :DBNAME
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT2 '...%R%# '
+\set VERBOSITY verbose
+
+\pset expanded auto
+\pset linestyle unicode
+\pset null 'NULL'
+
+\setenv PSQL_EDITOR vim
+\setenv PSQL_PAGER less
+
+\timing on
+
+\unset QUIET
