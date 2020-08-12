@@ -25,9 +25,6 @@ services:
       - ${PWD}/postgres/.psqlrc:/root/.psqlrc
 
   pgadmin:
-    # build:
-      # context: ./postgres
-      # dockerfile: Dockerfile-pgadmin
     image: dpage/pgadmin4:latest
     env_file:
       - .env
@@ -57,4 +54,13 @@ services:
     ports:
       - '${ELASTICSEARCH_HOST_PORT}:${ELASTICSEARCH_CONTAINER_PORT}'
     volumes:
-      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ${PWD}/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+
+  cassandra:
+    env_file:
+      - .env
+    image: cassandra:latest
+    ports:
+      - '${CASSANDRA_HOST_PORT}:${CASSANDRA_CONTAINER_PORT}'
+    volumes:
+      - ./data:/var/lib/cassandra

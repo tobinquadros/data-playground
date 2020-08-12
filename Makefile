@@ -1,10 +1,18 @@
 include .env
 
-.PHONY: jupyter \
-	postgres postgres-shell psql pgadmin \
-	mysql mysql-shell mysql-client phpmyadmin \
+.PHONY: \
+	cassandra \
 	elasticsearch \
+	jupyter \
+	mysql mysql-shell mysql-client phpmyadmin \
+	postgres postgres-shell psql pgadmin \
 	clean rm-containers rm-images
+
+cassandra:
+	@ docker-compose up -d cassandra
+
+elasticsearch:
+	@ docker-compose up -d elasticsearch
 
 jupyter:
 	@ docker-compose up -d jupyter
@@ -41,9 +49,6 @@ phpmyadmin: mysql
 	@ docker-compose up -d phpmyadmin
 	@ sleep 3 # lets phpmyadmin container initialize
 	@ open http://localhost:8080/
-
-elasticsearch:
-	@ docker-compose up -d elasticsearch
 
 clean: rm-containers rm-images
 
